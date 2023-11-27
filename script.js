@@ -1,18 +1,27 @@
 //your JS code here. If required.
-document.getElementById('change_button').addEventListener('click', function () {
-    const blockId = document.getElementById('block_id').value;
-    const color = document.getElementById('color_id').value;
-    const gridItem = document.getElementById(blockId);
+function changeColor() {
+            var blockId = document.getElementById("block_id").value;
+            var colorId = document.getElementById("colour_id").value;
+            var blockElement = document.getElementById(blockId);
 
-    if (gridItem) {
-        gridItem.style.backgroundColor = color;
-    }
-});
+            if (blockElement) {
+                // Set all grid items' background to transparent
+                var gridItems = document.querySelectorAll(".grid-item");
+                gridItems.forEach(function(item) {
+                    item.style.backgroundColor = "transparent";
+                });
 
-document.getElementById('reset_button').addEventListener('click', function () {
-    const gridItems = document.querySelectorAll('.grid-item');
+                // Change the background color of the selected grid item
+                blockElement.style.backgroundColor = colorId;
+            } else {
+                alert("Invalid Block ID");
+            }
+        }
 
-    gridItems.forEach((item) => {
-        item.style.backgroundColor = 'transparent';
-    });
-});
+        function resetColors() {
+            // Set all grid items' background to transparent
+            var gridItems = document.querySelectorAll(".grid-item");
+            gridItems.forEach(function(item) {
+                item.style.backgroundColor = "transparent";
+            });
+        }
